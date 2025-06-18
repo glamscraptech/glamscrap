@@ -8,6 +8,94 @@
     <link rel="icon" href="/Assets/Glamscrap logo.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="chatbot.css">
+    <script src="chatbot.js"></script> -->
+
+    <meta name="title" content="Glamscrap Technologies | Eco-Friendly Recycled Products & Sustainable Solutions India">
+    <meta name="description"
+        content="Leading sustainability startup transforming waste into eco-friendly products. Shop seed pens, recycled notebooks, custom trophies, 3D printed items & corporate gifts. Zero-waste circular economy solutions in India.">
+
+    <!-- Enhanced Keywords with Long-tail & Local SEO -->
+    <meta name="keywords"
+        content="Glamscrap Technologies, sustainable products India, eco-friendly corporate gifts, recycled seed pens, plantable pens, eco stationery suppliers, custom eco trophies Mumbai, PET bottle recycling, 3D printing recycled filament, zero waste products, circular economy startup India, green business solutions, waste to wealth products, biodegradable notebooks, recycled paper products, eco-friendly promotional items, sustainable packaging solutions, environment friendly gifts, green corporate branding, recycled plastic bags, upcycled stationery, eco-conscious gifts, plantable seed pencils, recycled PET products, green office supplies, sustainable merchandise, eco-friendly awards trophies, biodegradable promotional products, recycled material crafts, green technology India, waste management innovation, sustainable startup India, eco-friendly business gifts, recycled paper notebooks, green marketing materials, sustainable product design, eco-friendly corporate merchandise">
+
+    <!-- Author & Company Information -->
+    <meta name="author" content="Glamscrap Technologies Pvt. Ltd.">
+    <meta name="company" content="Glamscrap Technologies Pvt. Ltd.">
+    <meta name="copyright" content="© 2024 Glamscrap Technologies Pvt. Ltd. All rights reserved.">
+
+    <!-- Technical Meta Tags -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="language" content="en-IN">
+    <meta name="geo.region" content="IN">
+    <meta name="geo.country" content="India">
+    <meta name="theme-color" content="#065f46">
+    <meta name="msapplication-TileColor" content="#065f46">
+
+    <!-- Business & Location Meta Tags -->
+    <meta name="geo.placename" content="India">
+    <meta name="business.category" content="Sustainability, Recycling, Eco-friendly Products">
+    <meta name="business.type" content="Manufacturing, B2B, Corporate Gifting">
+
+    <!-- Content Classification -->
+    <meta name="rating" content="General">
+    <meta name="distribution" content="Global">
+    <meta name="revisit-after" content="7 days">
+    <meta name="expires" content="never">
+
+    <!-- ✅ ENHANCED OPEN GRAPH / FACEBOOK -->
+    <meta property="og:site_name" content="Glamscrap Technologies">
+    <meta property="og:title" content="Glamscrap Technologies | Transform Waste into Eco-Friendly Products">
+    <meta property="og:description"
+        content="India's leading sustainability startup creating innovative eco-friendly products from waste. Discover seed pens, recycled notebooks, custom trophies, and sustainable corporate gifts. Join the circular economy revolution.">
+    <meta property="og:image" content="https://glamscrap.in/Assets/Glamscrap%20logo.png">
+    <meta property="og:image:alt" content="Glamscrap Technologies Logo - Eco-Friendly Recycled Products">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://glamscrap.in/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Business Information -->
+    <meta property="business:contact_data:street_address" content="">
+    <meta property="business:contact_data:locality" content="India">
+    <meta property="business:contact_data:region" content="">
+    <meta property="business:contact_data:country_name" content="India">
+
+    <!-- ✅ STRUCTURED DATA PREPARATION (JSON-LD would go in body) -->
+
+    <!-- Additional Search Engine Meta Tags -->
+    <meta name="apple-mobile-web-app-title" content="Glamscrap">
+    <meta name="application-name" content="Glamscrap Technologies">
+    <meta name="msapplication-tooltip" content="Eco-friendly recycled products and sustainability solutions">
+
+    <!-- Mobile Optimization -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Enhanced Favicon Package -->
+    <link rel="icon" href="/Assets/Glamscrap logo.png" type="image/png">
+    <link rel="shortcut icon" href="/Assets/Glamscrap logo.png">
+    <link rel="apple-touch-icon" href="/Assets/Glamscrap logo.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/Assets/Glamscrap logo.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/Assets/Glamscrap logo.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/Assets/Glamscrap logo.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/Assets/Glamscrap logo.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://glamscrap.in/">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//glamscrap.in">
+
     <style>
         /* .leaf-pattern {
             background-image: radial-gradient(circle, rgba(74, 163, 106, 0.1) 1px, transparent 1px);
@@ -144,6 +232,40 @@
         .submit-btn:hover {
             background-color: #065f46;
             transform: translateY(-2px);
+        }
+
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #059669, #065f46);
+            color: white;
+            font-size: 28px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 8px 25px rgba(6, 95, 70, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 380px;
+            max-height: 90vh;
+            display: none;
+            /* starts hidden */
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -1002,8 +1124,11 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-lg font-semibold text-gray-900">Corporate Headquarters</h4>
-                                    <p class="mt-1 text-gray-600">SREC SPARK Incubation Center,<br>Sri Ramakrishna
-                                        Engineering College,<br>Vattamalaipalayam,<br>Coimbatore - 641022</p>
+                                    <a href="https://maps.app.goo.gl/6aG4FWQmSTWKGLqu8"
+                                        class="mt-1 text-gray-600 hover:text-gray-600">SREC SPARK Incubation
+                                        Center,<br>Sri
+                                        Ramakrishna
+                                        Engineering College,<br>Vattamalaipalayam,<br>Coimbatore - 641022</a>
                                 </div>
                             </div>
 
@@ -1015,8 +1140,12 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-lg font-semibold text-gray-900">Phone</h4>
-                                    <p class="mt-1 text-gray-600">+91 93632 06709</p>
-                                    <p class="mt-1 text-gray-600">+91 78688 43309</p>
+                                    <a href="https://wa.me/+919363206709"
+                                        class="mt-1 text-gray-600 hover:text-gray-600">+91
+                                        93632 06709</a><br>
+                                    <a href="https://wa.me/+917868843309"
+                                        class="mt-1 text-gray-600 hover:text-gray-600">+91
+                                        78688 43309</a>
                                     <p class="text-sm text-gray-500 mt-1">Mon-Sat, 10:00 AM - 05:00 PM IST</p>
                                 </div>
                             </div>
@@ -1029,7 +1158,8 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-lg font-semibold text-gray-900">Email</h4>
-                                    <p class="mt-1 text-gray-600">glamscraptechnologies@gmail.com</p>
+                                    <a href="mailto:glamscraptechnologies@gmail.com"
+                                        class="mt-1 text-gray-600 hover:text-gray-600">glamscraptechnologies@gmail.com</a>
                                     <p class="text-sm text-gray-500 mt-1">Typically responds within 24 hours</p>
                                 </div>
                             </div>
@@ -1184,8 +1314,9 @@
 
             <div class="border-t border-green-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-green-300 text-sm mb-4 md:mb-0">
-                    © 2025 Glamscrap Technologies Pvt. Ltd. All rights reserved.
+                    © <span id="currentYear"></span> Glamscrap Technologies Pvt. Ltd. All rights reserved.
                 </p>
+
                 <div class="flex space-x-6">
                     <!-- <img src="https://via.placeholder.com/40x25?text=ISO" alt="ISO Certified" class="h-6">
                     <img src="https://via.placeholder.com/40x25?text=EPR" alt="EPR Compliance" class="h-6">
@@ -1200,6 +1331,9 @@
     </footer>
 
     <script>
+        // Set current year in footer
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
         // Get the form element
         const form = document.querySelector('form[name="contact-form"]');
 
@@ -1305,6 +1439,40 @@
             statsObserver.observe(statsSection);
         }
     </script>
+
+
+
+    <!-- Chatbot Launcher Button
+    <div class="chatbot-toggle" onclick="toggleChatbot()" style="position:sticky; left:93%; color: #065f46;">
+        🤖</div>
+
+    <!- Chatbot Box -
+    <div class="chat-container" id="chat-container" style="position:sticky;left:70%">
+        <div class="chat-header">
+            <div class="chat-header-content">
+                <div class="company-logo">🌱</div>
+                <div>
+                    <div class="chat-title">GreenPal Assistant</div>
+                    <div class="chat-subtitle">Glamscrap Technologies</div>
+                </div>
+            </div>
+            <button class="close-btn" onclick="toggleChatbot()">✕</button>
+        </div>
+
+        <div id="chat-box" class="chat-box"></div>
+
+        <div class="quick-actions" id="quick-actions">
+            <div class="quick-action" onclick="sendQuickMessage('What services do you offer?')">Our Services</div>
+            <div class="quick-action" onclick="sendQuickMessage('How can I contact you?')">Contact Info</div>
+            <div class="quick-action" onclick="sendQuickMessage('Tell me about e-waste recycling')">E-waste</div>
+            <div class="quick-action" onclick="sendQuickMessage('What is your mission?')">Our Mission</div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Ask me anything about our services..." />
+            <button class="send-btn" onclick="sendMessage()">Send</button>
+        </div>
+    </div> -->
 </body>
 
 </html>
