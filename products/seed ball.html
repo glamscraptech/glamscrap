@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recycled Pens with Seed | Glamscrap</title>
+  <!-- Start of unified head from index.html (adjusted for relative paths) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seed balls| Glamscrap</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="" type="image/png">
   <style>
     .slide-in {
       animation: slideIn 1s ease-out;
@@ -55,9 +59,8 @@
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-
-  <!-- Navbar -->
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+  <!-- Navbar (from index.html, adjust links as needed) -->
   <nav class="bg-white/90 backdrop-blur-md text-gray-800 shadow-xl sticky top-0 z-50   rounded-lg m-2 border-2 border-green-300 "  x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
@@ -102,7 +105,7 @@
   </nav>
 
 
-  <!-- Social Sidebar -->
+  <!-- Social Sidebar (from index.html) -->
   <div class="social-sidebar  rounded-lg m-2 border-2 border-green-300">
     <a href="mailto:glamscraptechnologies@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://instagram.com/recyclegifts"><i class="fab fa-instagram"></i></a>
@@ -111,27 +114,62 @@
   </div>
 
   <!-- Product Section -->
-  <section class="max-w-6xl mx-auto p-8  rounded-lg m-2 border-2 border-green-300">
+  <section class="max-w-6xl mx-auto p-8  rounded-lg m-4 border-2 border-green-300">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
 
       <!-- Carousel -->
-      <div class="relative slide-in">
-        <img id="mainSlide" class="rounded-lg w-full h-auto object-cover carousel-img active  rounded-lg m-2 border-2 border-green-300" src="../img/notepad-1.webp">
-        <img class="rounded-lg w-full h-auto object-cover carousel-img  rounded-lg m-2 border-2 border-green-300" src="../img/notepad-2.webp">
-        <img class="rounded-lg w-full h-auto object-cover carousel-img  rounded-lg m-2 border-2 border-green-300" src="../img/notepad-3.webp">
+      <div class="relative slide-in ">
+        <img id="mainSlide" class="rounded-lg w-full h-auto object-cover carousel-img active  rounded-lg m-2 border-2 border-green-300" src="../img/momento-1.webp">
+        <img class="rounded-lg w-full h-auto object-cover carousel-img  rounded-lg m-2 border-2 border-green-300" src="../img/momento-2.webp">
+        <img class="rounded-lg w-full h-auto object-cover carousel-img  rounded-lg m-2 border-2 border-green-300" src="../img/momento-3.webp">
 
         <!-- Thumbnails -->
         <div class="flex mt-4 gap-2">
-          <img onclick="showSlide(0)" src="../img/notepad-3.webp" class="w-20 h-20 object-cover rounded cursor-pointer border border-green-400">
-          <img onclick="showSlide(1)" src="../img/notepad-2.webp" class="w-20 h-20 object-cover rounded cursor-pointer">
-          <img onclick="showSlide(2)" src="../img/notepad-3.webp" class="w-20 h-20 object-cover rounded cursor-pointer">
+          <img onclick="showSlide(0)" src="../img/momento-1.webp" class="w-20 h-20 object-cover rounded cursor-pointer border border-green-400">
+          <img onclick="showSlide(1)" src="../img/momento-3.webp" class="w-20 h-20 object-cover rounded cursor-pointer">
+          <img onclick="showSlide(2)" src="../img/momento-2.webp" class="w-20 h-20 object-cover rounded cursor-pointer">
         </div>
       </div>
 
+      <!-- Place this inside your existing <section> before the Reviews -->
+<!-- Start of Varieties + Custom Section -->
+<div class="mt-10 slide-in">
+  <h3 class="text-2xl font-bold text-green-700 mb-4">Varieties Available</h3>
+  <ul class="list-disc list-inside text-gray-700 space-y-2">
+    <li><strong>Flower Seeds:</strong> Marigold, Sunflower, Hibiscus</li>
+    <li><strong>Herbal Seeds:</strong> Tulsi, Mint, Lemongrass</li>
+    <li><strong>Vegetable Seeds:</strong> Tomato, Brinjal, Chilli</li>
+    <li><strong>Tree Seeds:</strong> Neem, Peepal, Banyan</li>
+  </ul>
+
+  <h3 class="text-2xl font-bold text-green-700 mt-6 mb-4">Customized Seed Balls</h3>
+  <p class="text-gray-600 mb-3">We offer customized seed balls for eco-friendly gifting and campaigns. Tailor your seed ball orders with:</p>
+  <ul class="list-disc list-inside text-gray-700 space-y-2">
+    <li>Brand/Logo printed on each seed ball or packaging</li>
+    <li>Eco-friendly message cards with personalized messages</li>
+    <li>Choose your preferred seed types</li>
+    <li>Special packaging for events, schools, corporates, NGOs</li>
+  </ul>
+
+  <div class="mt-6 flex flex-col sm:flex-row gap-4">
+    <a href="https://instagram.com/recyclegifts" target="_blank"
+      class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition text-center">
+      Customize on Instagram
+    </a>
+    <a href="https://wa.me/919999999999?text=Hi%20Glamscrap!%20I'm%20interested%20in%20custom%20seed%20balls."
+      target="_blank"
+      class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition text-center">
+      Order via WhatsApp
+    </a>
+  </div>
+</div>
+<!-- End of Varieties + Custom Section -->
+
+
       <!-- Details -->
       <div class="slide-in">
-        <h2 class="text-3xl font-bold text-green-700 mb-4">Recycled Pens with Seed</h2>
-        <p class="text-gray-600 mb-4">Eco-friendly pens made from biodegradable materials. Write smoothly and plant after use. Each pen has organic seeds and prevents 5–7 plastic pens from entering landfills.</p>
+        <h2 class="text-3xl font-bold text-green-700 mb-4">Seed balls</h2>
+        <p class="text-gray-600 mb-4">Eco-friendly made from biodegradable materials. Write smoothly and plant after use. Each pen has organic seeds and prevents 5–7 plastic pens from entering landfills.</p>
         <div class="text-2xl text-green-600 font-semibold mb-2">₹40 / piece</div>
         <div class="mb-4">
           <span class="font-semibold">Rating:</span>
@@ -158,7 +196,7 @@
     </div>
   </section>
 
-  <footer class="bg-green-900 text-white  rounded-lg m-2 border-2 border-green-300">
+   <footer class="bg-green-900 text-white  rounded-lg m-2 border-2 border-green-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="animate-fade-in-up">
@@ -248,6 +286,11 @@
     </div>
   </footer>
 
+  <!-- Scroll to Top Button and scripts (from index.html) -->
+  <button id="scrollTop" class="fixed bottom-8 right-8 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-all transform hover:scale-110 opacity-0 invisible" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
   <script>
     let current = 0;
     const slides = document.querySelectorAll('.carousel-img');
@@ -264,7 +307,26 @@
       current = (current + 1) % slides.length;
       showSlide(current);
     }, 3000);
-  </script>
 
+    // Scroll to Top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Show/hide scroll to top button
+    window.addEventListener('scroll', () => {
+      const scrollTopButton = document.getElementById('scrollTop');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollTopButton.classList.remove('invisible', 'opacity-0');
+        scrollTopButton.classList.add('visible', 'opacity-100');
+      } else {
+        scrollTopButton.classList.remove('visible', 'opacity-100');
+        scrollTopButton.classList.add('invisible', 'opacity-0');
+      }
+    });
+  </script>
 </body>
 </html>

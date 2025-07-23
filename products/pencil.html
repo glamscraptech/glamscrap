@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Start of unified head from index.html (adjusted for relative paths) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recycled Pens with Seed | Glamscrap</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="" type="image/png">
   <style>
     .slide-in {
       animation: slideIn 1s ease-out;
@@ -55,9 +59,8 @@
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-
-  <!-- Navbar -->
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+  <!-- Navbar (from index.html, adjust links as needed) -->
   <nav class="bg-white/90 backdrop-blur-md text-gray-800 shadow-xl sticky top-0 z-50   rounded-lg m-2 border-2 border-green-300 "  x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
@@ -102,7 +105,7 @@
   </nav>
 
 
-  <!-- Social Sidebar -->
+  <!-- Social Sidebar (from index.html) -->
   <div class="social-sidebar  rounded-lg m-2 border-2 border-green-300">
     <a href="mailto:glamscraptechnologies@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://instagram.com/recyclegifts"><i class="fab fa-instagram"></i></a>
@@ -116,15 +119,15 @@
 
       <!-- Carousel -->
       <div class="relative slide-in">
-        <img id="mainSlide" class="rounded-lg w-full h-auto object-cover carousel-img active  rounded-lg m-2 border-2 border-green-300" src="../img/notepad-1.webp">
-        <img class="rounded-lg w-full h-auto object-cover carousel-img  rounded-lg m-2 border-2 border-green-300" src="../img/notepad-2.webp">
-        <img class="rounded-lg w-full h-auto object-cover carousel-img  rounded-lg m-2 border-2 border-green-300" src="../img/notepad-3.webp">
+        <img id="mainSlide" class="rounded-lg w-full h-auto object-cover carousel-img active  rounded-lg m-2 border-2 border-green-300" src="../img/pencil-1.webp">
+        <img class="rounded-lg w-full h-auto object-cover carousel-img  rounded-lg m-2 border-2 border-green-300" src="../img/pencil-2.webp">
+        <img class="rounded-lg w-full h-auto object-cover carousel-img  rounded-lg m-2 border-2 border-green-300" src="../img/pencil-3.webp">
 
         <!-- Thumbnails -->
         <div class="flex mt-4 gap-2">
-          <img onclick="showSlide(0)" src="../img/notepad-3.webp" class="w-20 h-20 object-cover rounded cursor-pointer border border-green-400">
-          <img onclick="showSlide(1)" src="../img/notepad-2.webp" class="w-20 h-20 object-cover rounded cursor-pointer">
-          <img onclick="showSlide(2)" src="../img/notepad-3.webp" class="w-20 h-20 object-cover rounded cursor-pointer">
+          <img onclick="showSlide(0)" src="../img/pencil-1.webp" class="w-20 h-20 object-cover rounded cursor-pointer border border-green-400">
+          <img onclick="showSlide(1)" src="../img/pencil-2.webp" class="w-20 h-20 object-cover rounded cursor-pointer">
+          <img onclick="showSlide(2)" src="../img/pencil-3.webp" class="w-20 h-20 object-cover rounded cursor-pointer">
         </div>
       </div>
 
@@ -248,6 +251,11 @@
     </div>
   </footer>
 
+  <!-- Scroll to Top Button and scripts (from index.html) -->
+  <button id="scrollTop" class="fixed bottom-8 right-8 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-all transform hover:scale-110 opacity-0 invisible" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
   <script>
     let current = 0;
     const slides = document.querySelectorAll('.carousel-img');
@@ -264,6 +272,14 @@
       current = (current + 1) % slides.length;
       showSlide(current);
     }, 3000);
+
+    // Scroll to Top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   </script>
 
 </body>
