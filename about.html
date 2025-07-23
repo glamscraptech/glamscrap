@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glamscrap Technologies Pvt. Ltd. | Sustainable Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="" type="image/png">
+  <style>
+    /* Custom CSS Animations and Styles */
+    
+    /* Hero Background Animation */
+    .hero-bg {
+      background: linear-gradient(135deg, #064f46 0%, #047857 25%, #10b981 50%, #34d399 75%, #6ee7b7 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 60% 10%, rgba(255,255,255,0.1) 0%, transparent 50%);
+      opacity: 0.3;
+      animation: floatParticles 10s ease-in-out infinite;
+    }
+    
+    /* Social Sidebar */
+    .social-sidebar {
+      position: fixed;
+      top: 40%;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      background: rgba(6, 95, 70, 0.95);
+      backdrop-filter: blur(10px);
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+      animation: slideInRight 1s ease-out;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .social-sidebar a {
+      color: white;
+      padding: 15px;
+      font-size: 20px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+    }
+    
+    .social-sidebar a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1) translateX(-5px);
+    }
+    
+    /* Team Section Enhanced Animations */
+    .team-section {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .team-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(16, 185, 129, 0.02) 0%, rgba(6, 95, 70, 0.02) 100%);
+      z-index: 0;
+    }
+    
+    .team-container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .team-member-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .team-member-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #059669, #047857);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    
+    .team-member-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .team-member-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(6, 95, 70, 0.15);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    
+    .team-member-img {
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: grayscale(20%) brightness(1.1);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .team-member-img::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(16, 185, 129, 0.1), rgba(6, 95, 70, 0.1));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+    
+    .team-member-img:hover::before {
+      opacity: 1;
+    }
+    
+    .team-member-img:hover {
+      transform: scale(1.08) rotate(2deg);
+      filter: grayscale(0%) brightness(1.2);
+      box-shadow: 0 25px 50px rgba(6, 95, 70, 0.2);
+    }
+    
+    .team-member-name {
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .team-member-name::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    
+    .team-member-card:hover .team-member-name::after {
+      width: 100%;
+    }
+    
+    .team-member-name:hover {
+      color: #059669;
+      transform: scale(1.05);
+    }
+    
+    .team-member-role {
+      position: relative;
+      overflow: hidden;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
+    }
+    
+    .team-member-role::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      transition: width 0.3s ease;
+    }
+    
+    .team-member-card:hover .team-member-role::after {
+      width: 100%;
+    }
+    
+    .team-member-desc {
+      line-height: 1.8;
+      color: #4b5563;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .team-member-links a {
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.1);
+    }
+    
+    .team-member-links a:hover {
+      transform: translateY(-4px) scale(1.15);
+      color: #059669;
+      background: rgba(16, 185, 129, 0.2);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    }
+    
+    .team-member-links a::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(16, 185, 129, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+    
+    .team-member-links a:hover::before {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .team-image-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+    
+    .team-image-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(16, 185, 129, 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+    
+    .team-image-container:hover::before {
+      opacity: 1;
+    }
+    
+    .team-image-container::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: transform 0.6s ease;
+      opacity: 0;
+      z-index: 2;
+    }
+    
+    .team-image-container:hover::after {
+      transform: rotate(45deg) translate(50%, 50%);
+      opacity: 1;
+    }
+    
+    /* Keyframe Animations */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes floatParticles {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+    
+    @keyframes slideInRight {
+      0% { transform: translateX(100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeInLeft {
+      0% { opacity: 0; transform: translateX(-30px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes fadeInRight {
+      0% { opacity: 0; transform: translateX(30px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes scaleIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    @keyframes teamFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    
+    /* Animation Classes */
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .animate-fade-in-down {
+      animation: fadeInDown 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .animate-fade-in-left {
+      animation: fadeInLeft 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .animate-fade-in-right {
+      animation: fadeInRight 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .animate-scale-in {
+      animation: scaleIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .animate-team-float {
+      animation: teamFloat 4s ease-in-out infinite;
+    }
+    
+    .pulse-dot {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    /* Glass Card Effect */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Service Cards */
+    .service-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 20px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(6, 95, 70, 0.15);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    
+    /* Text Gradient Effect */
+    .text-gradient {
+      background: linear-gradient(135deg, #059669, #10b981, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Counter Animation */
+    .counter-animation {
+      transition: all 0.5s ease;
+      font-weight: bold;
+    }
+    
+    /* Section Divider */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #10b981, transparent);
+      margin: 4rem 0;
+    }
+    
+    /* Navbar Underline Effect */
+    .nav-underline {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .nav-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #10b981;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-underline:hover::after {
+      width: 100%;
+    }
+    
+    /* Scroll Top Button */
+    #scrollTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    #scrollTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Stagger Animation Delays */
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+    .stagger-6 { animation-delay: 0.6s; }
+    
+    /* Company Stats */
+    .company-stats {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .stat-number {
+      display: block;
+      font-size: 3rem;
+      font-weight: 800;
+      color: #059669;
+      margin-bottom: 0.5rem;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .value-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(6, 95, 70, 0.1);
+    }
+    
+    .value-icon {
+      font-size: 3rem;
+      color: #10b981;
+      margin-bottom: 1rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-bg {
+        background-size: 300% 300%;
+      }
+      
+      .social-sidebar {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      
+      .animate-fade-in-up,
+      .animate-fade-in-down,
+      .animate-scale-in,
+      .animate-fade-in-left,
+      .animate-fade-in-right {
+        animation-duration: 0.6s;
+      }
+      
+      .team-member-card {
+        padding: 1.5rem;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+    
+    /* Loading animation for better UX */
+    .loading {
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Focus states for accessibility */
+    a:focus, button:focus {
+      outline: 2px solid #10b981;
+      outline-offset: 2px;
+    }
+    
+    /* === Custom Animations and Colors (ADDED) === */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    @keyframes teamFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    .text-green-700 { color: #047857; }
+    .text-green-600 { color: #059669; }
+    .text-green-500 { color: #10b981; }
+    .text-green-800:hover { color: #065f46; }
+    .bg-green-50 { background-color: #f0fdf4; }
+    .bg-green-500 { background-color: #10b981; }
+    .bg-green-600 { background-color: #059669; }
+    .bg-green-700 { background-color: #047857; }
+    .bg-green-800 { background-color: #065f46; }
+    .border-green-500 { border-color: #10b981; }
+    .text-gradient {
+      background: linear-gradient(135deg, #059669, #10b981, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    .animate-scale-in {
+      animation: scaleIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    .animate-team-float {
+      animation: teamFloat 4s ease-in-out infinite;
+    }
+    .pulse-dot {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    /* === End Custom Animations and Colors === */
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden ">
+ <!-- Navbar -->
+   <nav class="bg-white/90 backdrop-blur-md text-gray-800 shadow-xl sticky top-0 z-50   rounded-lg m-2 border-2 border-green-300 "  x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center space-x-3 group">
+          <div class="relative">
+            <img src="img/Glamscrap logo.webp" alt="Glamscrap Logo" class="h-12 w-12 rounded-full ring-2 ring-green-500 group-hover:ring-green-600 transition-all">
+            <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full pulse-dot"></div>
+          </div>
+          <div>
+            <p class="font-bold text-xl leading-tight text-gradient ">Glamscrap</p>
+            <span class="text-xs text-gray-600 animate-fade-in-left ">Technologies Pvt. Ltd.</span>
+          </div>
+        </a>
+         <div class="hidden md:flex space-x-8 cursor-pointer  ">
+          <a href="index.html" class="hover:text-green-600 font-medium">Home</a>
+          <a href="about.html" class="hover:text-green-600 font-medium">About</a>
+          <a href="services.html" class="hover:text-green-600 font-medium">Services</a>
+          <a href="products.html" class="hover:text-green-600 font-medium">Products</a>
+          <a href="AchieBlog.html" class="hover:text-green-600 font-medium">AchieBlog</a>
+          <a href="ebook.html" class="hover:text-green-600 font-medium">E-book</a>
+                    <a href="contact.html" class="hover:text-green-600 font-medium">Contact</a>
+
+        </div>
+        <div class="md:hidden">
+          <button @click="open = !open" class="focus:outline-none p-2 rounded-lg hover:bg-green-50 transition-colors">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95" class="md:hidden bg-white border-t border-green-100">
+      <div class="px-4 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block px-3 py-2 hover:bg-green-50 rounded">Home</a>
+        <a href="about.html" class="block px-3 py-2 hover:bg-green-50 rounded">About</a>
+        <a href="services.html" class="block px-3 py-2 hover:bg-green-50 rounded">Services</a>
+        <a href="products.html" class="block px-3 py-2 hover:bg-green-50 rounded">Products</a>
+        <a href="AchieBlog.html" class="block px-3 py-2 hover:bg-green-50 rounded">AchieBlog</a>
+        <a href="ebook.html" class="block px-3 py-2 hover:bg-green-50 rounded">E-book</a>
+        <a href="contact.html" class="block px-3 py-2 hover:bg-green-50 rounded">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Social Sidebar -->
+  <div class="social-sidebar rounded-lg m-2 border-2 border-green-300">
+    <a href="mailto:glamscraptechnologies@gmail.com" title="Email" class="group">
+      <i class="fas fa-envelope group-hover:animate-pulse"></i>
+    </a>
+    <a href="https://instagram.com/recyclegifts" title="Instagram" class="group">
+      <i class="fab fa-instagram group-hover:animate-pulse"></i>
+    </a>
+    <a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited" title="LinkedIn" class="group">
+      <i class="fab fa-linkedin-in group-hover:animate-pulse"></i>
+    </a>
+    <a href="https://wa.me/919999999999" title="WhatsApp" class="group">
+      <i class="fab fa-whatsapp group-hover:animate-pulse"></i>
+    </a>
+  </div>
+
+    <!-- Hero Section -->
+    <section class="hero-bg py-20 text-white  rounded-lg m-2 border-2 border-green-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-down">
+                About <span class="text-gradient">Glamscrap</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 animate-fade-in-up max-w-3xl mx-auto">
+                Pioneering sustainable technology solutions for a greener tomorrow
+            </p>
+            <div class="flex justify-center space-x-4 animate-scale-in">
+                <span class="pulse-dot inline-block w-3 h-3 bg-green-300 rounded-full"></span>
+                <span class="pulse-dot inline-block w-3 h-3 bg-green-400 rounded-full" style="animation-delay: 0.2s;"></span>
+                <span class="pulse-dot inline-block w-3 h-3 bg-green-500 rounded-full" style="animation-delay: 0.4s;"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="leaf-pattern py-16 bg-gradient-to-b from-white to-green-50  rounded-lg m-2 border-2 border-green-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-16">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase animate-fade-in-down">About Us</h2>
+                <p class="mt-2 text-4xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-5xl animate-fade-in-up">
+                    Pioneering Sustainable Technology
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto animate-scale-in">
+                    Glamscrap Technologies Pvt. Ltd. is a leader in innovative waste management and recycling solutions.
+                </p>
+            </div>
+
+            <!-- Company Stats -->
+            <div class="company-stats animate-fade-in-up  rounded-lg m-2 border-2 border-green-300">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="stat-item">
+                        <span class="stat-number counter-animation">5+</span>
+                        <span class="text-gray-600 font-semibold">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number counter-animation">1000+</span>
+                        <span class="text-gray-600 font-semibold">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number counter-animation">500+</span>
+                        <span class="text-gray-600 font-semibold">Happy Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number counter-animation">95%</span>
+                        <span class="text-gray-600 font-semibold">Waste Reduction</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="mt-16">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2 animate-fade-in-up">
+                        <div class="relative">
+                            <img class="rounded-2xl shadow-2xl w-full animate-float" src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Glamscrap facility">
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-transparent opacity-20 rounded-2xl"></div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <div class="space-y-8">
+                            <div class="service-card p-8 animate-fade-in-up  rounded-lg m-2 border-2 border-green-300">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-eye text-3xl text-green-600 mr-4"></i>
+                                    <h3 class="text-2xl font-bold text-green-700">Our Vision</h3>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed">
+                                    To become a global leader in sustainable waste transformation by pioneering
+                                    innovative recycling technologies that promote a zero-waste future and circular
+                                    economy.
+                                </p>
+                            </div>
+                            <div class="service-card p-8 animate-fade-in-up  rounded-lg m-2 border-2 border-green-300" style="animation-delay: 0.2s;">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-bullseye text-3xl text-green-600 mr-4"></i>
+                                    <h3 class="text-2xl font-bold text-green-700">Our Mission</h3>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed">
+                                    To provide eco-friendly, efficient, and scalable solutions for waste management by
+                                    converting discarded materials into valuable, reusable products using cutting-edge
+                                    recycling methods.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Company Values -->
+             <!-- Company Values -->
+<div class="mt-16 animate-fade-in-up">
+  <h3 class="text-3xl font-bold text-center text-gray-900 mb-12">Our Core Values</h3>
+  <div class="values-grid">
+    <div class="value-card  rounded-lg m-2 border-2 border-green-300">
+      <i class="fas fa-leaf value-icon"></i>
+      <h4 class="text-xl font-bold text-green-700 mb-3">Sustainability</h4>
+      <p class="text-gray-600">Committed to environmental protection and creating a sustainable future for generations to come.</p>
+    </div>
+    <div class="value-card  rounded-lg m-2 border-2 border-green-300">
+      <i class="fas fa-lightbulb value-icon"></i>
+      <h4 class="text-xl font-bold text-green-700 mb-3">Innovation</h4>
+      <p class="text-gray-600">Continuously developing cutting-edge technologies to revolutionize waste management practices.</p>
+    </div>
+    <div class="value-card rounded-lg m-2 border-2 border-green-300">
+      <i class="fas fa-handshake value-icon"></i>
+      <h4 class="text-xl font-bold text-green-700 mb-3">Integrity</h4>
+      <p class="text-gray-600">Operating with transparency, honesty, and ethical practices in all our business relationships.</p>
+    </div>
+    <div class="value-card  rounded-lg m-2 border-2 border-green-300">
+      <i class="fas fa-star value-icon"></i>
+      <h4 class="text-xl font-bold text-green-700 mb-3">Excellence</h4>
+      <p class="text-gray-600">Striving for the highest quality standards in every product and service we deliver.</p>
+    </div>
+  </div>
+</div>
+</section>
+<!-- Team Section -->
+<section id="team" class="py-16 bg-gray-50 team-section  rounded-lg m-2 border-2 border-green-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 team-container">
+    <div class="lg:text-center mb-12">
+      <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase animate-fade-in-down">Our Team</h2>
+      <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl animate-fade-in-up">Meet the Minds Behind Glamscrap</p>
+    </div>
+
+    <!-- Member 1 -->
+    <div class="flex flex-col lg:flex-row mb-12 items-center gap-8 animate-fade-in-up stagger-1 ">
+      <div class="lg:w-2/5 team-image-container  rounded-lg m-2 border-2 border-green-300">
+        <img src="img/kayalvizhi.webp" alt="Kayalvizhi S"
+class="team-member-img w-full max-h-35 object-cover rounded-lg shadow-lg hover:shadow-xl">
+      </div>
+      <div class="lg:w-3/5 team-member-card">
+        <h3 class="text-2xl font-bold text-green-700 mb-2 team-member-name">Kayalvizhi S</h3>
+        <p class="italic text-green-500 mb-2 team-member-role">Director, CEO</p>
+        <p class="text-gray-600 mb-4 team-member-desc">
+          As a founder, I see waste as an opportunity. Every recycled notebook, every seed pen tells a story of impact. And we're not stopping here—more conscious creations are on the way.
+        </p>
+        <div class="flex space-x-4 team-member-links">
+          <a href="https://www.linkedin.com/in/kayalvizhi-s-468493261/" target="_blank"
+            class="text-green-600 hover:text-green-800" title="LinkedIn">
+            <i class="fab fa-linkedin text-3xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Member 2 -->
+    <div class="flex flex-col lg:flex-row items-center gap-8 animate-fade-in-up stagger-2">
+      <div class="lg:w-3/5 team-member-card ">
+        <h3 class="text-2xl font-bold text-green-700 mb-2 team-member-name">Vimal V</h3>
+        <p class="italic text-green-500 mb-2 team-member-role">Operational Manager</p>
+        <p class="text-gray-600 mb-4 team-member-desc">
+          From waste to wonder, our seed pens, recycled paper goods, and eco-essentials are crafted to seamlessly fit into your daily life—making sustainability not just a choice, but a lifestyle.
+        </p>
+        <div class="flex space-x-4 team-member-links">
+          <a href="https://www.linkedin.com/in/vimal-entrepreneur" target="_blank"
+            class="text-green-600 hover:text-green-800" title="LinkedIn">
+            <i class="fab fa-linkedin text-3xl"></i>
+          </a>
+        </div>
+      </div>
+      <div class="lg:w-2/5 team-image-container  rounded-lg m-2 border-2 border-green-300">
+        <img src="img/vimal-vijaiyan.webp" alt="Vimal V"
+class="team-member-img w-full max-h-35 object-cover rounded-lg shadow-lg hover:shadow-xl">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="section-divider"></div>
+<!-- Footer copied from index.html -->
+ <footer class="bg-green-900 text-white  rounded-lg m-2 border-2 border-green-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="animate-fade-in-up">
+          <div class="flex items-center space-x-3 mb-6">
+            <img src="../img/Glamscrap logo.webp" alt="Glamscrap Logo" class="h-12 w-12 rounded-full">
+            <div>
+              <p class="font-bold text-xl">Glamscrap</p>
+              <span class="text-sm text-green-200">Technologies Pvt. Ltd.</span>
+            </div>
+          </div>
+          <p class="text-green-200 mb-6">
+            Transforming waste into valuable resources through innovative sustainable solutions.
+          </p>
+          <div class="flex space-x-4">
+            <a href="mailto:glamscraptechnologies@gmail.com" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://instagram.com/recyclegifts" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://wa.me/919999999999" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+          <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-green-200 hover:text-white transition">About Us</a></li>
+            <li><a href="services.html" class="text-green-200 hover:text-white transition">Services</a></li>
+            <li><a href="products.html" class="text-green-200 hover:text-white transition">Products</a></li>
+            <li><a href="contact.html" class="text-green-200 hover:text-white transition">Contact</a></li>
+            <li><a href="AchieBlog.html" class="block px-3 py-2 hover:bg-green-50 rounded">AchieBlog</a></li>
+            <li><a href="ebook.html" class="block px-3 py-2 hover:bg-green-50 rounded">ebook</a></li>
+          </ul>
+        </div>
+        
+        <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
+          <h3 class="text-lg font-semibold mb-6">Services</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-green-200 hover:text-white transition">Waste Management</a></li>
+            <li><a href="#" class="text-green-200 hover:text-white transition">Product Manufacturing</a></li>
+            <li><a href="#" class="text-green-200 hover:text-white transition">Consulting</a></li>
+            <li><a href="#" class="text-green-200 hover:text-white transition">Technology Solutions</a></li>
+          </ul>
+        </div>
+        
+        <div class="animate-fade-in-up" style="animation-delay: 0.6s;">
+          <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3">
+              <i class="fas fa-map-marker-alt text-green-400 mt-1"></i>
+              <div>
+                <p class="text-green-200">Corporate Headquarters</p>
+                <p class="text-green-200">SREC SPARK Incubation
+                                    Center,<br>Sri
+                                    Ramakrishna
+                                    Engineering College,<br>Vattamalaipalayam,<br>Coimbatore - 641022</a></p>
+              </div>
+            </div>
+           <div class="flex items-center space-x-2">
+  <i class="fas fa-phone text-green-400"></i>
+  <a href="tel:+917868843309" class="text-green-200 hover:text-green-500 transition duration-300">+91 78688 43309</a>
+  <a href="tel:+919363206709" class="text-green-200 hover:text-green-500 transition duration-300">+91 93632 06709</a>
+</div>
+
+<div class="flex items-center space-x-3 mt-2">
+  <i class="fas fa-envelope text-green-400"></i>
+  <a href="mailto:glamscraptechnologies@gmail.com"
+    class="text-green-200 hover:text-green-500 transition duration-300">glamscraptechnologies@gmail.com</a>
+</div>
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-divider"></div>
+      
+      <div class="text-center">
+        <p class="text-green-200">&copy; 2025 Glamscrap Technologies Pvt. Ltd. All rights reserved.</p>
+        <p class="text-green-300 mt-2">Building a sustainable future, one innovation at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  
+  <!-- Scroll to Top Button -->
+  <button id="scrollTop" class="fixed bottom-8 right-8 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-all transform hover:scale-110 opacity-0 invisible" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Scroll to top functionality
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Show/hide scroll to top button
+    window.addEventListener('scroll', function() {
+      const scrollButton = document.getElementById('scrollTop');
+      if (window.pageYOffset > 300) {
+        scrollButton.classList.add('show');
+      } else {
+        scrollButton.classList.remove('show');
+      }
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('[class*="animate-"]').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>
