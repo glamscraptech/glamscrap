@@ -322,14 +322,16 @@
   </div>
 
   <!-- New Hero Section with Image Slider -->
-  <section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden rounded-none border-none shadow-none">
-    <div class="absolute inset-0 w-full h-full">
+  <section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden rounded-none border-none shadow-none bg-black">
+    <div class="absolute inset-0 w-full h-full flex">
+      <!-- Add two images for slider animation -->
       <div id="hero-slider" class="w-full h-full relative">
-        <img src="Assets/hero-2.webp" alt="Hero Image 2" class="absolute inset-0 w-full h-full object-contain bg-white max-h-full max-w-full transition-opacity duration-1000 opacity-0 slider-img" style="z-index:1;">
+        <img src="Assets/hero-2.webp" alt="Hero Image 2" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 slider-img" style="z-index:2;">
+        <img src="Assets/hero-3.webp" alt="Hero Image 3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 slider-img" style="z-index:1;">
       </div>
       <div class="absolute inset-0 bg-black/30"></div>
     </div>
-    <!-- Add overlay behind text for visibility -->
+    <!-- Text overlay centered -->
     <div class="relative z-10 text-center px-4 w-full flex flex-col items-center">
       <div class="inline-block bg-black/60 rounded-xl px-6 py-8">
         <h1 class="text-4xl sm:text-6xl font-bold text-white mb-4 drop-shadow-lg">Innovative Sustainable Solutions</h1>
@@ -338,12 +340,11 @@
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a href="products.html" class="bg-green-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-700 transition-all">Our Products</a>
-          <a href="contact.html" class="bg-white text-green-700 px-8 py-4 rounded-full font-semibold hover:bg-green-100 transition-all">Get Started</a>
+          <a href="contact.html" class="bg-white text-green-700 px-8 py-4 rounded-full font-semibold hover:bg-green-100 transition-all">Contact Us</a>
         </div>
       </div>
     </div>
   </section>
-
   <style>
     /* Simple slider fade animation */
     #hero-slider .slider-img {
@@ -356,7 +357,7 @@
     }
   </style>
   <script>
-    // Simple slider JS
+    // Simple slider JS for two images
     const sliderImages = document.querySelectorAll('#hero-slider .slider-img');
     let current = 0;
     setInterval(() => {
@@ -956,4 +957,5 @@
   </script>
 </body>
 
+</html>
 </html>
