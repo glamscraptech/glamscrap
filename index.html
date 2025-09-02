@@ -321,40 +321,57 @@
     </a>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero-bg text-white text-center flex items-center justify-center min-h-screen relative rounded-lg m-2 border-2 border-green-300 shadow-xl">
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40"></div>
-    <div class="relative z-10 px-4 max-w-6xl mx-auto">
-      <div class="animate-fade-in-down">  
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-          <span class="block">Innovative</span>
-          <span class="block text-green-300">Sustainable</span>
-          <span class="block">Solutions</span>
-        </h1>
-        <p class="mt-6 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed">
-          We transform waste into valuable resources through cutting-edge technology and sustainable practices, creating a circular economy for a greener future.
+  <!-- New Hero Section with Image Slider -->
+  <section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden rounded-none border-none shadow-none">
+    <div class="absolute inset-0 w-full h-full">
+      <div id="hero-slider" class="w-full h-full relative">
+        <img src="Assets/hero-2.webp" alt="Hero Image 2" class="absolute inset-0 w-full h-full object-contain bg-white max-h-full max-w-full transition-opacity duration-1000 opacity-0 slider-img" style="z-index:1;">
+      </div>
+      <div class="absolute inset-0 bg-black/30"></div>
+    </div>
+    <!-- Add overlay behind text for visibility -->
+    <div class="relative z-10 text-center px-4 w-full flex flex-col items-center">
+      <div class="inline-block bg-black/60 rounded-xl px-6 py-8">
+        <h1 class="text-4xl sm:text-6xl font-bold text-white mb-4 drop-shadow-lg">Innovative Sustainable Solutions</h1>
+        <p class="text-lg sm:text-xl text-white mb-8 max-w-2xl mx-auto drop-shadow-lg">
+          We transform waste into valuable resources for a greener future.
         </p>
-        <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-          <a href="products.html" class="glass-card px-8 py-4 font-semibold text-lg hover:bg-white/20 transition-all group  rounded-lg m-2 border-2 border-green-300">
-            <i class="fas fa-leaf mr-2 group-hover:animate-pulse"></i>
-            Our Products
-          </a>
-          <a href="contact.html" class="bg-green-600 text-white font-semibold px-8 py-4 rounded-2xl hover:bg-green-700 transition-all transform hover:scale-105 shadow-lg  rounded-lg m-2 border-2 border-green-300">
-            <i class="fas fa-rocket mr-2"></i>
-            Get Started
-          </a>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="products.html" class="bg-green-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-700 transition-all">Our Products</a>
+          <a href="contact.html" class="bg-white text-green-700 px-8 py-4 rounded-full font-semibold hover:bg-green-100 transition-all">Get Started</a>
         </div>
-      </div>
-      
-      <!-- Floating Elements -->
-      <div class="absolute top-20 left-10 animate-float">
-        <div class="w-4 h-4 bg-green-400 rounded-full opacity-60"></div>
-      </div>
-      <div class="absolute bottom-20 right-10 animate-float" style="animation-delay: 1s;">
-        <div class="w-6 h-6 bg-green-300 rounded-full opacity-40"></div>
       </div>
     </div>
   </section>
+
+  <style>
+    /* Simple slider fade animation */
+    #hero-slider .slider-img {
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    #hero-slider .slider-img.active {
+      opacity: 1;
+      z-index: 2;
+    }
+  </style>
+  <script>
+    // Simple slider JS
+    const sliderImages = document.querySelectorAll('#hero-slider .slider-img');
+    let current = 0;
+    setInterval(() => {
+      sliderImages.forEach((img, idx) => {
+        img.classList.remove('active');
+        img.style.opacity = '0';
+      });
+      current = (current + 1) % sliderImages.length;
+      sliderImages[current].classList.add('active');
+      sliderImages[current].style.opacity = '1';
+    }, 3500);
+    // Set first image active on load
+    sliderImages[0].classList.add('active');
+    sliderImages[0].style.opacity = '1';
+  </script>
 
   <!-- Chatbot Button -->
 <!-- Chatbot Toggle Button -->
