@@ -327,7 +327,7 @@
   <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/50 z-0"></div>
 
   <!-- Image Slider -->
-  <div id="hero-slider" class="relative w-full flex items-center justify-center">
+  <div id="hero-slider" class="relative w-full flex items-center justify-center min-h-[300px]">
     <img src="Assets/Sales Product Website.jpg 01.jpg" 
          alt="Hero Image 1" 
          class="slider-img absolute w-full max-w-full h-auto max-h-[80vh] object-contain transition-opacity duration-1000 opacity-100 cursor-pointer">
@@ -376,8 +376,10 @@
     showSlide(current);
   }
 
+  // Auto-slide every 3 seconds
   let slideInterval = setInterval(nextSlide, 3000);
 
+  // Arrow controls
   document.getElementById('next-slide').addEventListener('click', () => { nextSlide(); resetInterval(); });
   document.getElementById('prev-slide').addEventListener('click', () => { prevSlide(); resetInterval(); });
 
@@ -413,6 +415,7 @@
     }
   });
 </script>
+
 
 
 
@@ -1002,6 +1005,7 @@
 </html>
 
 </html>
+
 
 
 
