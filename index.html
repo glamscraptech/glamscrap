@@ -262,7 +262,7 @@
 
 <body class="bg-gray-50 text-gray-800 overflow-x-hidden fad">
   <!-- Navbar -->
-  <nav class="bg-white/90 backdrop-blur-md text-gray-800 shadow-xl sticky top-0 z-50   rounded-lg m-2 border-2 border-green-300  "  x-data="{ open: false } ">
+  <nav class="bg-white/90 backdrop-blur-md text-gray-800 shadow-xl sticky top-0 z-50 w-full  rounded-lg m-2 border-2 border-green-300  "  x-data="{ open: false } ">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
       <div class="flex justify-between items-center h-16">
         <a href="index.html" class="flex items-center space-x-3 group">
@@ -321,55 +321,56 @@
     </a>
   </div>
 
-  <!-- Hero Section -->
-  <section class="relative w-full min-h-[100vh] flex items-end justify-center overflow-hidden">
-    <!-- Image Slider -->
-    <div id="hero-slider" class="absolute inset-0 w-full h-full">
-      <img src="Assets/Sales Product Website.jpg 01.jpg" alt="Hero Image 1" 
-           class="absolute inset-0 w-full h-full object-cover object-top sm:object-center transition-opacity duration-1000 opacity-0 slider-img">
-      <img src="Assets/Sales Product Website.jpg02.jpg" alt="Hero Image 2" 
-           class="absolute inset-0 w-full h-full object-cover object-top sm:object-center transition-opacity duration-1000 opacity-0 slider-img">
+  <section class="relative w-full min-h-screen flex items-end justify-center overflow-hidden py-20 bg-white  rounded-lg m-2 border-2 border-green-300">
+  <!-- Gradient Overlay for premium feel -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/50 z-0"></div>
+
+  <!-- Image Slider -->
+  <div id="hero-slider" class="absolute inset-0 w-full h-full">
+    <img src="Assets/Sales Product Website.jpg 01.jpg" 
+         alt="Hero Image 1" 
+         class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-100 slider-img">
+    <img src="Assets/Sales Product Website.jpg02.jpg" 
+         alt="Hero Image 2" 
+         class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0 slider-img">
+  </div>
+
+  <!-- Buttons Container -->
+  <div class="relative z-10 w-full flex justify-center pb-12 px-4">
+    <div class="flex flex-col sm:flex-row gap-6 w-full max-w-[90%] sm:max-w-lg mx-auto">
+      <a href="products.html"
+         class="bg-green-600 text-white px-8 py-4 sm:py-3 rounded-full font-semibold text-lg hover:bg-green-700 transition-all text-center shadow-xl hover:shadow-2xl transform hover:scale-105 flex-1">
+        Our Products
+      </a>
+      <a href="contact.html"
+         class="bg-white text-green-700 px-8 py-4 sm:py-3 rounded-full font-semibold text-lg hover:bg-green-100 transition-all text-center shadow-xl hover:shadow-2xl transform hover:scale-105 flex-1">
+        Contact Us
+      </a>
     </div>
-    
-    <!-- Buttons Container -->
-    <div class="relative z-10 w-full flex justify-center pb-8 sm:pb-12 px-4">
-      <div class="flex flex-col sm:flex-row gap-4 w-full max-w-[90%] sm:max-w-md mx-auto">
-        <a href="products.html"
-           class="bg-green-600 text-white px-6 py-4 sm:py-3 rounded-full font-semibold text-lg hover:bg-green-700 transition-all text-center shadow-lg flex-1">
-          Our Products
-        </a>
-        <a href="contact.html"
-           class="bg-white text-green-700 px-6 py-4 sm:py-3 rounded-full font-semibold text-lg hover:bg-green-100 transition-all text-center shadow-lg flex-1">
-          Contact Us
-        </a>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <script>
-    // Image slider functionality
-    const sliderImages = document.querySelectorAll('#hero-slider .slider-img');
-    let currentImageIndex = 0;
+<script>
+  // Premium Hero Slider JS with smooth fade
+  const slides = document.querySelectorAll('.slider-img');
+  let current = 0;
 
-    function showNextImage() {
-      // Hide all images
-      sliderImages.forEach(img => {
-        img.style.opacity = '0';
-      });
-      
-      // Show current image
-      sliderImages[currentImageIndex].style.opacity = '1';
-      
-      // Update index for next iteration
-      currentImageIndex = (currentImageIndex + 1) % sliderImages.length;
-    }
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.opacity = i === index ? '1' : '0';
+      slide.style.transition = 'opacity 1.2s ease-in-out';
+    });
+  }
 
-    // Show first image immediately
-    showNextImage();
-    
-    // Start slideshow with 5 second interval
-    setInterval(showNextImage, 5000);
-  </script>
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }
+
+  // Auto-slide every 5 seconds
+  setInterval(nextSlide, 5000);
+</script>
+
 
   <!-- Chatbot Button -->
 <!-- Chatbot Toggle Button -->
@@ -955,4 +956,5 @@
 </body>
 
 </html>
+
 </html>
