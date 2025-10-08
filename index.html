@@ -321,22 +321,23 @@
     </a>
   </div>
 
-  <section class="relative w-full min-h-screen flex items-end justify-center overflow-hidden py-20 bg-white rounded-lg m-2 border-2 border-green-300">
-  <!-- Gradient Overlay for premium feel -->
+
+<section class="relative w-full overflow-hidden bg-white rounded-lg m-2 border-2 border-green-300">
+  <!-- Gradient Overlay -->
   <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/50 z-0"></div>
 
   <!-- Image Slider -->
-  <div id="hero-slider" class="absolute inset-0 w-full h-full">
+  <div id="hero-slider" class="relative w-full">
     <img src="Assets/Sales Product Website.jpg 01.jpg" 
          alt="Hero Image 1" 
-         class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-100 slider-img">
+         class="w-full max-w-full mx-auto transition-opacity duration-1000 opacity-100 slider-img object-contain">
     <img src="Assets/Sales Product Website.jpg02.jpg" 
          alt="Hero Image 2" 
-         class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0 slider-img">
+         class="w-full max-w-full mx-auto transition-opacity duration-1000 opacity-0 slider-img object-contain">
   </div>
 
   <!-- Buttons Container -->
-  <div class="relative z-10 w-full flex justify-center pb-12 px-4">
+  <div class="relative z-10 w-full flex justify-center py-8 px-4">
     <div class="flex flex-col sm:flex-row gap-6 w-full max-w-[90%] sm:max-w-lg mx-auto">
       <a href="products.html"
          class="bg-green-600 text-white px-8 py-4 sm:py-3 rounded-full font-semibold text-lg hover:bg-green-700 transition-all text-center shadow-xl hover:shadow-2xl transform hover:scale-105 flex-1">
@@ -351,7 +352,6 @@
 </section>
 
 <script>
-  // Premium Hero Slider JS with smooth fade
   const slides = document.querySelectorAll('.slider-img');
   let current = 0;
 
@@ -367,80 +367,10 @@
     showSlide(current);
   }
 
-  // Initial display
   showSlide(current);
-
-  // Auto-slide every 5 seconds
   setInterval(nextSlide, 5000);
-
-  // Optional: make slider responsive on window resize
-  window.addEventListener('resize', () => {
-    slides.forEach(slide => {
-      slide.style.width = '100%';
-      slide.style.height = '100%';
-    });
-  });
 </script>
-<section class="relative w-full min-h-screen flex items-end justify-center overflow-hidden py-20 bg-white rounded-lg m-2 border-2 border-green-300">
-  <!-- Gradient Overlay for premium feel -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/50 z-0"></div>
 
-  <!-- Image Slider -->
-  <div id="hero-slider" class="absolute inset-0 w-full h-full">
-    <img src="Assets/Sales Product Website.jpg 01.jpg" 
-         alt="Hero Image 1" 
-         class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-100 slider-img">
-    <img src="Assets/Sales Product Website.jpg02.jpg" 
-         alt="Hero Image 2" 
-         class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-0 slider-img">
-  </div>
-
-  <!-- Buttons Container -->
-  <div class="relative z-10 w-full flex justify-center pb-12 px-4">
-    <div class="flex flex-col sm:flex-row gap-6 w-full max-w-[90%] sm:max-w-lg mx-auto">
-      <a href="products.html"
-         class="bg-green-600 text-white px-8 py-4 sm:py-3 rounded-full font-semibold text-lg hover:bg-green-700 transition-all text-center shadow-xl hover:shadow-2xl transform hover:scale-105 flex-1">
-        Our Products
-      </a>
-      <a href="contact.html"
-         class="bg-white text-green-700 px-8 py-4 sm:py-3 rounded-full font-semibold text-lg hover:bg-green-100 transition-all text-center shadow-xl hover:shadow-2xl transform hover:scale-105 flex-1">
-        Contact Us
-      </a>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Premium Hero Slider JS with smooth fade
-  const slides = document.querySelectorAll('.slider-img');
-  let current = 0;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.style.opacity = i === index ? '1' : '0';
-      slide.style.transition = 'opacity 1.2s ease-in-out';
-    });
-  }
-
-  function nextSlide() {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  }
-
-  // Initial display
-  showSlide(current);
-
-  // Auto-slide every 5 seconds
-  setInterval(nextSlide, 5000);
-
-  // Optional: make slider responsive on window resize
-  window.addEventListener('resize', () => {
-    slides.forEach(slide => {
-      slide.style.width = '100%';
-      slide.style.height = '100%';
-    });
-  });
-</script>
 
   <!-- Chatbot Button -->
 <!-- Chatbot Toggle Button -->
@@ -1028,4 +958,5 @@
 </html>
 
 </html>
+
 
