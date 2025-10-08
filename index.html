@@ -323,21 +323,24 @@
 
 
 <section class="relative w-full overflow-hidden rounded-lg m-2 border-2 border-green-300">
-  <!-- Animated Gradient Background -->
-  <div class="absolute inset-0 z-0 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-gradient-bg"></div>
+  <!-- Background Image -->
+  <div id="slider-bg" class="absolute inset-0 z-0">
+    <img src="Assets/Background1.jpg" alt="Background" class="w-full h-full object-cover brightness-75 transition-all duration-1000">
+    <div class="absolute inset-0 bg-black/30"></div> <!-- Overlay for contrast -->
+  </div>
 
   <!-- Image Slider -->
   <div id="hero-slider" class="relative w-full flex items-center justify-center min-h-[300px] overflow-hidden">
     <img src="Assets/Sales Product Website.jpg 01.jpg" 
          alt="Hero Image 1" 
-         class="slider-img absolute w-full max-w-full h-auto max-h-[80vh] object-contain transition-opacity duration-1200 opacity-100 cursor-pointer transform hover:scale-105">
+         class="slider-img absolute w-full max-w-[90%] h-auto max-h-[80vh] object-contain transition-opacity duration-1000 opacity-100 cursor-pointer shadow-2xl rounded-lg transform hover:scale-105" data-bg="Assets/Background1.jpg">
     <img src="Assets/Sales Product Website.jpg02.jpg" 
          alt="Hero Image 2" 
-         class="slider-img absolute w-full max-w-full h-auto max-h-[80vh] object-contain transition-opacity duration-1200 opacity-0 cursor-pointer transform hover:scale-105">
+         class="slider-img absolute w-full max-w-[90%] h-auto max-h-[80vh] object-contain transition-opacity duration-1000 opacity-0 cursor-pointer shadow-2xl rounded-lg transform hover:scale-105" data-bg="Assets/Background2.jpg">
 
     <!-- Arrows -->
-    <button id="prev-slide" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 z-10 transition-transform hover:scale-110">&#10094;</button>
-    <button id="next-slide" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 z-10 transition-transform hover:scale-110">&#10095;</button>
+    <button id="prev-slide" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 z-10 shadow-lg hover:shadow-2xl transition-transform hover:scale-110">&#10094;</button>
+    <button id="next-slide" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 z-10 shadow-lg hover:shadow-2xl transition-transform hover:scale-110">&#10095;</button>
   </div>
 
   <!-- Buttons Container -->
@@ -355,27 +358,9 @@
   <button id="close-modal" class="absolute top-5 right-5 text-white text-3xl font-bold">&times;</button>
 </div>
 
-<style>
-  /* Animated gradient background */
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  .animate-gradient-bg {
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
-  }
-
-  /* Smooth hover zoom on images */
-  .slider-img:hover {
-    transform: scale(1.05);
-    transition: transform 0.8s ease;
-  }
-</style>
-
 <script>
   const slides = document.querySelectorAll('.slider-img');
+  const bg = document.getElementById('slider-bg').querySelector('img');
   let current = 0;
 
   function showSlide(index) {
@@ -383,6 +368,8 @@
       slide.style.opacity = i === index ? '1' : '0';
       slide.style.transition = 'opacity 1.2s ease-in-out';
     });
+    // Change background to match current slide
+    bg.src = slides[index].dataset.bg;
   }
 
   function nextSlide() {
@@ -407,7 +394,7 @@
 
   showSlide(current);
 
-  // Modal functionality
+  // Modal
   const modal = document.getElementById('image-modal');
   const modalImg = document.getElementById('modal-img');
   const closeModal = document.getElementById('close-modal');
@@ -426,13 +413,12 @@
   });
 
   modal.addEventListener('click', e => {
-    if (e.target === modal) {
+    if(e.target === modal) {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
     }
   });
 </script>
-
 
 
 
@@ -1022,6 +1008,7 @@
 </html>
 
 </html>
+
 
 
 
