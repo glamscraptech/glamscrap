@@ -322,29 +322,29 @@
   </div>
 
 
-<section class="relative w-full overflow-hidden bg-white rounded-lg m-2 border-2 border-green-300">
-  <!-- Gradient Overlay -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/50 z-0"></div>
+<section class="relative w-full overflow-hidden rounded-lg m-2 border-2 border-green-300">
+  <!-- Animated Gradient Background -->
+  <div class="absolute inset-0 z-0 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 animate-gradient-bg"></div>
 
   <!-- Image Slider -->
-  <div id="hero-slider" class="relative w-full flex items-center justify-center min-h-[300px]">
+  <div id="hero-slider" class="relative w-full flex items-center justify-center min-h-[300px] overflow-hidden">
     <img src="Assets/Sales Product Website.jpg 01.jpg" 
          alt="Hero Image 1" 
-         class="slider-img absolute w-full max-w-full h-auto max-h-[80vh] object-contain transition-opacity duration-1000 opacity-100 cursor-pointer">
+         class="slider-img absolute w-full max-w-full h-auto max-h-[80vh] object-contain transition-opacity duration-1200 opacity-100 cursor-pointer transform hover:scale-105">
     <img src="Assets/Sales Product Website.jpg02.jpg" 
          alt="Hero Image 2" 
-         class="slider-img absolute w-full max-w-full h-auto max-h-[80vh] object-contain transition-opacity duration-1000 opacity-0 cursor-pointer">
+         class="slider-img absolute w-full max-w-full h-auto max-h-[80vh] object-contain transition-opacity duration-1200 opacity-0 cursor-pointer transform hover:scale-105">
 
     <!-- Arrows -->
-    <button id="prev-slide" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 z-10">&#10094;</button>
-    <button id="next-slide" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 z-10">&#10095;</button>
+    <button id="prev-slide" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 z-10 transition-transform hover:scale-110">&#10094;</button>
+    <button id="next-slide" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 sm:p-3 rounded-full hover:bg-black/70 z-10 transition-transform hover:scale-110">&#10095;</button>
   </div>
 
   <!-- Buttons Container -->
   <div class="relative z-10 w-full flex justify-center py-6 px-4">
     <div class="flex flex-col sm:flex-row gap-4 w-full max-w-[90%] sm:max-w-lg mx-auto">
-      <a href="products.html" class="bg-green-600 text-white px-6 py-3 rounded-full font-semibold text-base sm:text-lg hover:bg-green-700 transition-all text-center shadow-lg hover:shadow-xl transform hover:scale-105 flex-1">Our Products</a>
-      <a href="contact.html" class="bg-white text-green-700 px-6 py-3 rounded-full font-semibold text-base sm:text-lg hover:bg-green-100 transition-all text-center shadow-lg hover:shadow-xl transform hover:scale-105 flex-1">Contact Us</a>
+      <a href="products.html" class="bg-green-600 text-white px-6 py-3 rounded-full font-semibold text-base sm:text-lg hover:bg-green-700 transition-all text-center shadow-lg hover:shadow-2xl transform hover:scale-105 flex-1">Our Products</a>
+      <a href="contact.html" class="bg-white text-green-700 px-6 py-3 rounded-full font-semibold text-base sm:text-lg hover:bg-green-100 transition-all text-center shadow-lg hover:shadow-2xl transform hover:scale-105 flex-1">Contact Us</a>
     </div>
   </div>
 </section>
@@ -354,6 +354,25 @@
   <img id="modal-img" src="" alt="Full View" class="max-w-full max-h-full rounded-lg shadow-2xl">
   <button id="close-modal" class="absolute top-5 right-5 text-white text-3xl font-bold">&times;</button>
 </div>
+
+<style>
+  /* Animated gradient background */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-gradient-bg {
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  /* Smooth hover zoom on images */
+  .slider-img:hover {
+    transform: scale(1.05);
+    transition: transform 0.8s ease;
+  }
+</style>
 
 <script>
   const slides = document.querySelectorAll('.slider-img');
@@ -376,10 +395,8 @@
     showSlide(current);
   }
 
-  // Auto-slide every 3 seconds
   let slideInterval = setInterval(nextSlide, 3000);
 
-  // Arrow controls
   document.getElementById('next-slide').addEventListener('click', () => { nextSlide(); resetInterval(); });
   document.getElementById('prev-slide').addEventListener('click', () => { prevSlide(); resetInterval(); });
 
@@ -390,7 +407,7 @@
 
   showSlide(current);
 
-  // Modal
+  // Modal functionality
   const modal = document.getElementById('image-modal');
   const modalImg = document.getElementById('modal-img');
   const closeModal = document.getElementById('close-modal');
@@ -409,7 +426,7 @@
   });
 
   modal.addEventListener('click', e => {
-    if(e.target === modal) {
+    if (e.target === modal) {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
     }
@@ -1005,6 +1022,7 @@
 </html>
 
 </html>
+
 
 
 
