@@ -382,14 +382,14 @@
     showSlide(current);
   }
 
-  let slideInterval = setInterval(nextSlide, 5000);
+  let slideInterval = setInterval(nextSlide, 3000);
 
   document.getElementById('next-slide').addEventListener('click', () => { nextSlide(); resetInterval(); });
   document.getElementById('prev-slide').addEventListener('click', () => { prevSlide(); resetInterval(); });
 
   function resetInterval() {
     clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 5000);
+    slideInterval = setInterval(nextSlide, 3000);
   }
 
   showSlide(current);
@@ -1008,6 +1008,7 @@
 </html>
 
 </html>
+
 
 
 
