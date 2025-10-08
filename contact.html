@@ -6,103 +6,89 @@
   <title>Contact Us | Glamscrap Technologies</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* Include all animation styles copied from index.html */
     html { scroll-behavior: smooth; }
     .hero-bg {
       background: linear-gradient(135deg, #064f46 0%, #047857 25%, #10b981 50%, #34d399 75%, #6ee7b7 100%);
       background-size: 400% 400%;
       animation: gradientShift 8s ease infinite;
     }
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-      opacity: 0;
-    }
-    .social-sidebar {
-      position: fixed; top: 40%; right: 0;
-      display: flex; flex-direction: column;
-      background: rgba(6, 95, 70, 0.95);
-      border-top-left-radius: 12px;
-      border-bottom-left-radius: 12px;
-      animation: slideInRight 1s ease-out;
-    }
-    .social-sidebar a {
-      color: white; padding: 15px; font-size: 20px;
-      transition: all 0.3s ease;
-    }
-    .social-sidebar a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1) translateX(-5px);
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideInRight {
-      0% { transform: translateX(100%); opacity: 0; }
-      100% { transform: translateX(0); opacity: 1; }
-    }
-     /* Section Divider */
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #10b981, transparent);
-      margin: 4rem 0;
-    }
-  </style>
-</head>
+    .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+    .social-sidebar { position: fixed; top: 40%; right: 0; display: flex; flex-direction: column; background: rgba(6, 95, 70, 0.95); border-top-left-radius: 12px; border-bottom-left-radius: 12px; animation: slideInRight 1s ease-out; }
+    .social-sidebar a { color: white; padding: 15px; font-size: 20px; transition: all 0.3s ease; }
+    .social-sidebar a:hover { background-color: rgba(255, 255, 255, 0.2); transform: scale(1.1) translateX(-5px); }
+    @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInRight { 0% { transform: translateX(100%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, #10b981, transparent); margin: 4rem 0; }
+  @keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
 
+@keyframes fadeOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.9); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+  </style>
+
+</head>
 <body class="bg-gray-50 text-gray-800 overflow-x-hidden">
 
- <!-- Navbar -->
-   <nav class="bg-white/90 backdrop-blur-md text-gray-800 shadow-xl sticky top-0 z-50   rounded-lg m-2 border-2 border-green-300 "  x-data="{ open: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <a href="index.html" class="flex items-center space-x-3 group">
-          <div class="relative">
-            <img src="Assets/Glamscrap logo.webp" alt="Glamscrap Logo" class="h-12 w-12 rounded-full ring-2 ring-green-500 group-hover:ring-green-600 transition-all">
-            <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full pulse-dot"></div>
-          </div>
-          <div>
-            <p class="font-bold text-xl leading-tight text-gradient animate-fade-in-left">Glamscrap</p>
-            <span class="text-xs text-gray-600 animate-fade-in-left ">Technologies Pvt. Ltd.</span>
-          </div>
-        </a>
-         <div class="hidden md:flex space-x-8 cursor-pointer animate-fade-in-right ">
-          <a href="index.html" class="hover:text-green-600 font-medium">Home</a>
-          <a href="about.html" class="hover:text-green-600 font-medium">About</a>
-          <a href="services.html" class="hover:text-green-600 font-medium">Services</a>
-          <a href="products.html" class="hover:text-green-600 font-medium">Products</a>
-          <a href="AchieBlog.html" class="hover:text-green-600 font-medium">AchieBlog</a>
-          <a href="ebook.html" class="hover:text-green-600 font-medium">E-book</a>
-                    <a href="contact.html" class="hover:text-green-600 font-medium">Contact</a>
-
+<!-- Navbar -->
+<nav class="bg-white/90 backdrop-blur-md text-gray-800 shadow-xl sticky top-0 z-50 rounded-lg m-2 border-2 border-green-300" x-data="{ open: false }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <a href="index.html" class="flex items-center space-x-3 group">
+        <div class="relative">
+          <img src="img/Glamscrap logo.webp" alt="Glamscrap Logo" class="h-12 w-12 rounded-full ring-2 ring-green-500 group-hover:ring-green-600 transition-all">
+          <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full pulse-dot"></div>
         </div>
-        <div class="md:hidden">
-          <button @click="open = !open" class="focus:outline-none p-2 rounded-lg hover:bg-green-50 transition-colors">
-            <i class="fas fa-bars text-xl"></i>
-          </button>
+        <div>
+          <p class="font-bold text-xl leading-tight text-gradient animate-fade-in-left">Glamscrap</p>
+          <span class="text-xs text-gray-600 animate-fade-in-left">Technologies Pvt. Ltd.</span>
         </div>
+      </a>
+      <div class="hidden md:flex space-x-8 cursor-pointer animate-fade-in-right">
+        <a href="index.html" class="hover:text-green-600 font-medium">Home</a>
+        <a href="about.html" class="hover:text-green-600 font-medium">About</a>
+        <a href="services.html" class="hover:text-green-600 font-medium">Services</a>
+        <a href="products.html" class="hover:text-green-600 font-medium">Products</a>
+        <a href="AchieBlog.html" class="hover:text-green-600 font-medium">AchieBlog</a>
+        <a href="ebook.html" class="hover:text-green-600 font-medium">E-book</a>
+        <a href="contact.html" class="hover:text-green-600 font-medium">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button @click="open = !open" class="focus:outline-none p-2 rounded-lg hover:bg-green-50 transition-colors">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
       </div>
     </div>
-    <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95" class="md:hidden bg-white border-t border-green-100">
-      <div class="px-4 pt-2 pb-3 space-y-1">
-        <a href="index.html" class="block px-3 py-2 hover:bg-green-50 rounded">Home</a>
-        <a href="about.html" class="block px-3 py-2 hover:bg-green-50 rounded">About</a>
-        <a href="services.html" class="block px-3 py-2 hover:bg-green-50 rounded">Services</a>
-        <a href="products.html" class="block px-3 py-2 hover:bg-green-50 rounded">Products</a>
-        <a href="AchieBlog.html" class="block px-3 py-2 hover:bg-green-50 rounded">AchieBlog</a>
-        <a href="ebook.html" class="block px-3 py-2 hover:bg-green-50 rounded">E-book</a>
-        <a href="contact.html" class="block px-3 py-2 hover:bg-green-50 rounded">Contact</a>
-      </div>
+  </div>
+  <div x-show="open" x-transition class="md:hidden bg-white border-t border-green-100">
+    <div class="px-4 pt-2 pb-3 space-y-1">
+      <a href="index.html" class="block px-3 py-2 hover:bg-green-50 rounded">Home</a>
+      <a href="about.html" class="block px-3 py-2 hover:bg-green-50 rounded">About</a>
+      <a href="services.html" class="block px-3 py-2 hover:bg-green-50 rounded">Services</a>
+      <a href="products.html" class="block px-3 py-2 hover:bg-green-50 rounded">Products</a>
+      <a href="AchieBlog.html" class="block px-3 py-2 hover:bg-green-50 rounded">AchieBlog</a>
+      <a href="ebook.html" class="block px-3 py-2 hover:bg-green-50 rounded">E-book</a>
+      <a href="contact.html" class="block px-3 py-2 hover:bg-green-50 rounded">Contact</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-
-  <!-- Hero Section -->
-<section class="bg-gradient-to-br from-green-800 via-green-600 to-green-400 text-white text-center flex items-center justify-center min-h-[40vh] relative overflow-hidden  rounded-lg m-2 border-2 border-green-300">
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-green-800 via-green-600 to-green-400 text-white text-center flex items-center justify-center min-h-[40vh] relative overflow-hidden rounded-lg m-2 border-2 border-green-300">
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40"></div>
   <div class="relative z-10 px-4 max-w-4xl mx-auto">
     <h1 class="text-4xl sm:text-5xl font-bold mb-4 leading-tight animate-fade-in-down">
@@ -110,113 +96,161 @@
       <span class="block text-green-300">Our Sustainable Products</span>
     </h1>
     <p class="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto animate-fade-in-up">
-Have questions about our services or products? We'd love to hear from you.    </p>
-  </div>
-  <!-- Floating Elements -->
-  <div class="absolute top-20 left-10 animate-float">
-    <div class="w-4 h-4 bg-green-400 rounded-full opacity-60"></div>
-  </div>
-  <div class="absolute bottom-20 right-10 animate-float" style="animation-delay: 1s;">
-    <div class="w-6 h-6 bg-green-300 rounded-full opacity-40"></div>
+      Have questions about our services or products? We'd love to hear from you.
+    </p>
   </div>
 </section>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10  rounded-lg m-2 border-2 border-green-300">
-        <!-- Contact Information -->
-        <div class="bg-gray-50 p-8 rounded-lg shadow-md ">
-          <h3 class="text-xl font-bold text-green-700 mb-6">Contact Information</h3>
-          <div class="space-y-6">
-            <div class="flex space-x-4">
-              <div class="bg-green-100 p-3 rounded-md"><i class="fas fa-map-marker-alt text-green-600"></i></div>
-              <div>
-                <h4 class="text-lg font-semibold">Headquarters</h4>
-                <p class="text-gray-600">
-                  SREC SPARK Incubation Center,<br/>
-                  Sri Ramakrishna Engineering College,<br/>
-                  Vattamalaipalayam, Coimbatore - 641022
-                </p>
-              </div>
-            </div>
+<!-- Contact Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 rounded-lg m-2 border-2 border-green-300">
 
-            <div class="flex space-x-4">
-              <div class="bg-green-100 p-3 rounded-md"><i class="fas fa-phone-volume text-green-600"></i></div>
-              <div>
-                <h4 class="text-lg font-semibold">Phone</h4>
-                <p class="text-gray-600">+91 93632 06709<br/>+91 78688 43309</p>
-              </div>
-            </div>
-
-            <div class="flex space-x-4">
-              <div class="bg-green-100 p-3 rounded-md"><i class="fas fa-envelope text-green-600"></i></div>
-              <div>
-                <h4 class="text-lg font-semibold">Email</h4>
-                <p class="text-gray-600">glamscraptechnologies@gmail.com</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Form -->
-        <div class="bg-gray-50 p-8 rounded-lg shadow-md  rounded-lg m-2 border-2 border-green-300">
-          <h3 class="text-xl font-bold text-green-700 mb-6">Send Us a Message</h3>
-          <form action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="POST" class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium text-gray-700">First Name*</label>
-                <input type="text" name="firstName" required class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"/>
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700">Last Name*</label>
-                <input type="text" name="lastName" required class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"/>
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Email*</label>
-              <input type="email" name="email" required class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"/>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Phone</label>
-              <input type="tel" name="phone" class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"/>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Subject*</label>
-              <select name="subject" required class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400">
-                <option>General Inquiry</option>
-                <option>Sales Questions</option>
-                <option>Service Request</option>
-                <option>Partnership Opportunities</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Message*</label>
-              <textarea name="message" rows="4" required class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"></textarea>
-            </div>
-            <div class="flex items-center">
-              <input type="checkbox" required class="h-4 w-4 text-green-600"/>
-              <label class="ml-2 text-sm">I agree to the privacy policy and terms of service.</label>
-            </div>
-            <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all">
-              Send Message <i class="fas fa-paper-plane ml-2"></i>
-            </button>
-          </form>
+  <!-- Contact Info -->
+  <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+    <h3 class="text-xl font-bold text-green-700 mb-6">Contact Information</h3>
+    <div class="space-y-6">
+      <div class="flex space-x-4">
+        <div class="bg-green-100 p-3 rounded-md"><i class="fas fa-map-marker-alt text-green-600"></i></div>
+        <div>
+          <h4 class="text-lg font-semibold">Headquarters</h4>
+          <p class="text-gray-600">
+            SREC SPARK Incubation Center,<br/>
+            Sri Ramakrishna Engineering College,<br/>
+            Vattamalaipalayam, Coimbatore - 641022
+          </p>
         </div>
       </div>
-      <!-- Google Map -->
-      <div class="mt-16  rounded-lg m-2 border-2 border-green-300">
-        <iframe class="rounded-lg shadow-md w-full h-96"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.4381996383654!2d76.96165687772508!3d11.101681760878934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8f7007a69ace3%3A0x1e7e96b075da61cf!2sGlamscrap%20Technologies%20Pvt.%20Ltd.!5e1!3m2!1sen!2sin!4v1749616777061!5m2!1sen!2sin"
-          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+
+      <div class="flex space-x-4">
+        <div class="bg-green-100 p-3 rounded-md"><i class="fas fa-phone-volume text-green-600"></i></div>
+        <div>
+          <h4 class="text-lg font-semibold">Phone</h4>
+          <p class="text-gray-600">+91 93632 06709<br/>+91 78688 43309</p>
+        </div>
+      </div>
+
+      <div class="flex space-x-4">
+        <div class="bg-green-100 p-3 rounded-md"><i class="fas fa-envelope text-green-600"></i></div>
+        <div>
+          <h4 class="text-lg font-semibold">Email</h4>
+          <p class="text-gray-600">glamscraptechnologies@gmail.com</p>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
-   <footer class="bg-green-900 text-white  rounded-lg m-2 border-2 border-green-300">
+  <!-- Contact Form -->
+  <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+    <h3 class="text-xl font-bold text-green-700 mb-6">Send Us a Message</h3>
+    <form id="contactForm" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">First Name*</label>
+          <input type="text" name="firstName" required class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Last Name*</label>
+          <input type="text" name="lastName" required class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"/>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Email*</label>
+        <input type="email" name="email" required class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"/>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Phone</label>
+        <input type="tel" name="phone" class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"/>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Subject*</label>
+        <select name="subject" required class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400">
+          <option>General Inquiry</option>
+          <option>Sales Questions</option>
+          <option>Service Request</option>
+          <option>Partnership Opportunities</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Message*</label>
+        <textarea name="message" rows="4" required class="border border-gray-500 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-green-400"></textarea>
+      </div>
+      <div class="flex items-center">
+        <input type="checkbox" required class="h-4 w-4 text-green-600"/>
+        <label class="ml-2 text-sm">I agree to the privacy policy and terms of service.</label>
+      </div>
+      <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all">
+        Send Message <i class="fas fa-paper-plane ml-2"></i>
+      </button>
+    </form>
+    <p id="formMessage" class="mt-4 text-center text-green-600 font-semibold hidden"></p>
+  </div>
+</div>
+<!-- Popup Modal -->
+<div id="popupMessage" class="fixed inset-0 flex items-center justify-center bg-black/50 hidden z-50">
+  <div id="popupContent" class="bg-white rounded-lg p-6 max-w-sm w-full text-center shadow-lg">
+    <p id="popupText" class="text-gray-800 text-lg"></p>
+  </div>
+</div>
+
+<!-- Google Map -->
+<div class="mt-16 rounded-lg m-2 border-2 border-green-300">
+  <iframe class="rounded-lg shadow-md w-full h-96"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.4381996383654!2d76.96165687772508!3d11.101681760878934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8f7007a69ace3%3A0x1e7e96b075da61cf!2sGlamscrap%20Technologies%20Pvt.%20Ltd.!5e1!3m2!1sen!2sin!4v1749616777061!5m2!1sen!2sin"
+    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- Footer (omitted for brevity, same as your code) -->
+
+<script>
+  const form = document.getElementById('contactForm');
+const popup = document.getElementById('popupMessage');
+const popupText = document.getElementById('popupText');
+const popupContent = document.getElementById('popupContent');
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzvNLPRfIGt9A3r7Y2X_42eEpudg087VnbWV-Sg2ZfL6rtOw8vPoMzSC-ofLJTFfZIpXQ/exec';
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(scriptURL, { method: 'POST', body: formData });
+    if (response.ok) {
+      popupText.textContent = '✅ Message sent successfully!';
+      form.reset();
+      showPopup();
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  } catch (error) {
+    popupText.textContent = '❌ Error sending message. Please try again.';
+    showPopup();
+    console.error('Error!', error.message);
+  }
+});
+
+function showPopup() {
+  popup.classList.remove('hidden');
+  popupContent.classList.remove('animate-fade-out');
+  popupContent.classList.add('animate-fade-in');
+
+  // Automatically close after 5 seconds
+  setTimeout(() => {
+    popupContent.classList.remove('animate-fade-in');
+    popupContent.classList.add('animate-fade-out');
+
+    popupContent.addEventListener('animationend', () => {
+      popup.classList.add('hidden');
+    }, { once: true });
+  }, 5000); // 5000ms = 5s
+}
+
+</script>
+  <footer class="bg-green-900 text-white  rounded-lg m-2 border-2 border-green-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="animate-fade-in-up">
           <div class="flex items-center space-x-3 mb-6">
-            <img src="Assets/Glamscrap logo.webp" alt="Glamscrap Logo" class="h-12 w-12 rounded-full">
+            <img src="../img/Glamscrap logo.webp" alt="Glamscrap Logo" class="h-12 w-12 rounded-full">
             <div>
               <p class="font-bold text-xl">Glamscrap</p>
               <span class="text-sm text-green-200">Technologies Pvt. Ltd.</span>
@@ -229,13 +263,13 @@ Have questions about our services or products? We'd love to hear from you.    </
             <a href="mailto:glamscraptechnologies@gmail.com" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
               <i class="fas fa-envelope"></i>
             </a>
-            <a href="https://instagram.com/glamscrap.in" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
+            <a href="https://instagram.com/recyclegifts" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited/" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
+            <a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://wa.me/919363206709" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
+            <a href="https://wa.me/919999999999" class="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
               <i class="fab fa-whatsapp"></i>
             </a>
           </div>
@@ -248,19 +282,21 @@ Have questions about our services or products? We'd love to hear from you.    </
             <li><a href="services.html" class="text-green-200 hover:text-white transition">Services</a></li>
             <li><a href="products.html" class="text-green-200 hover:text-white transition">Products</a></li>
             <li><a href="contact.html" class="text-green-200 hover:text-white transition">Contact</a></li>
-            <li><a href="AchieBlog.html" class="text-green-200 hover:text-white transition">AchieBlog</a></li>
-            <li><a href="ebook.html" class="text-green-200 hover:text-white transition">E-book</a></li>
+            <li><a href="AchieBlog.html" class="block px-3 py-2 hover:bg-green-50 rounded">AchieBlog</a></li>
+            <li><a href="ebook.html" class="block px-3 py-2 hover:bg-green-50 rounded">ebook</a></li>
           </ul>
         </div>
         
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Legal Notices</h3>
-          <ul class="space-y-2">
-            <li><a href="legal-notices/privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-            <li><a href="legal-notices/terms-of-service.html" class="footer-link">Terms of Service</a></li>
-            <!-- <li><a href="legal-notices/environmental-policy.html" class="footer-link">Environmental Policy</a></li> -->
+        <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
+          <h3 class="text-lg font-semibold mb-6">Services</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-green-200 hover:text-white transition">Waste Management</a></li>
+            <li><a href="#" class="text-green-200 hover:text-white transition">Product Manufacturing</a></li>
+            <li><a href="#" class="text-green-200 hover:text-white transition">Consulting</a></li>
+            <li><a href="#" class="text-green-200 hover:text-white transition">Technology Solutions</a></li>
           </ul>
         </div>
+        
         <div class="animate-fade-in-up" style="animation-delay: 0.6s;">
           <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
           <div class="space-y-3">
@@ -291,30 +327,12 @@ Have questions about our services or products? We'd love to hear from you.    </
       </div>
       
       <div class="section-divider"></div>
-      <div class="text-right text-sm text-green-500 mb-2 pl-2 font-semibold">
-        Developed by Madhujith B and Alan S
-      </div>
+      
       <div class="text-center">
         <p class="text-green-200">&copy; 2025 Glamscrap Technologies Pvt. Ltd. All rights reserved.</p>
         <p class="text-green-300 mt-2">Building a sustainable future, one innovation at a time.</p>
       </div>
     </div>
   </footer>
-
-
-  <script>
-    // Animation observer
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.style.animationPlayState = 'running';
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.animate-fade-in-up').forEach(el => {
-      el.style.animationPlayState = 'paused';
-      observer.observe(el);
-    });
-  </script>
 </body>
-</html>
 </html>
